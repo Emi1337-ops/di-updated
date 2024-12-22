@@ -24,6 +24,7 @@ namespace TagsCloudContainer.Visualizers
             {
                 count++;
                 g.DrawRectangle(pen, item);
+                g.DrawString("text", SystemFonts.DialogFont, Brushes.Aqua, item.Location);
             }
 
             image.Save(directory, ImageFormat.Jpeg);

@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using TagsCloudContainer.WordClasses;
 
 namespace TagsCloudContainer.Layouters
 {
@@ -16,7 +17,7 @@ namespace TagsCloudContainer.Layouters
             rectangles = new List<RectangleWord>();
         }
 
-        public IEnumerable<RectangleWord> GetLayout(IOrderedEnumerable<SizeWord> words)
+        public IEnumerable<RectangleWord> GetLayout(IEnumerable<SizeWord> words)
         {
             foreach (var word in words)
             {
@@ -33,7 +34,6 @@ namespace TagsCloudContainer.Layouters
             return rectangles;
         }
 
-
         private Point GetNextLocation(Size rectangleSize)
         {
             var radius = radiusStep * angle;
@@ -47,7 +47,7 @@ namespace TagsCloudContainer.Layouters
         {
             foreach (var existingRectangle in rectangles)
             {
-                if (existingRectangle.IntersectsWith(rectangle))
+                if (existingRectangle.Bounds.IntersectsWith(rectangle))
                     return true;
             }
             return false;
@@ -62,5 +62,7 @@ namespace TagsCloudContainer.Layouters
         {
             return new Point(rect.Location.X + rect.Width / 2, rect.Location.Y + rect.Height / 2);
         }
+
+        
     }
 }

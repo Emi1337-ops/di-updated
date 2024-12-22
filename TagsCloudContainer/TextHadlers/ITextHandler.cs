@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TagsCloudContainer.TextHadlers
 {
-    internal interface ITextHandler
+    public interface ITextHandler
     {
+        public string Handle(string text);
     }
 }
