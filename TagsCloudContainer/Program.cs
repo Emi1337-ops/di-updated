@@ -1,2 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Autofac;
+
+public static class Program 
+{
+    public static void Main()
+    {
+        var builder = new ContainerBuilder();
+    }
+}
