@@ -20,7 +20,7 @@ public class WordsFilter : IFilter
         }
 
         AddStopWords(config.StopWords);
-        RemoveStopWords(config.RightWords);
+        RemoveRightWords(config.RightWords);
     }
 
     public bool Contains(string word)
@@ -33,7 +33,7 @@ public class WordsFilter : IFilter
         words.Add(word);
     }
 
-    public void RemoveStopWord(string word)
+    public void RemoveRightWord(string word)
     {
         words.Remove(word);
     }
@@ -44,9 +44,9 @@ public class WordsFilter : IFilter
             AddStopWord(word);
     }
 
-    public void RemoveStopWords(string[] wordArray)
+    public void RemoveRightWords(string[] wordArray)
     {
         foreach (var word in wordArray)
-            RemoveStopWord(word);
+            RemoveRightWord(word);
     }
 }

@@ -1,9 +1,9 @@
-using TagsCloudContainer.FileReaders;
+﻿using TagsCloudContainer.FileReaders;
 
 namespace TagCloudContainerTests;
 
 [TestFixture]
-public class FileReadTest
+public class SizerTests
 {
     private static readonly VerifySettings Settings = new();
     private IReader Reader;
