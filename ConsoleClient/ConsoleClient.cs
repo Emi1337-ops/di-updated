@@ -1,9 +1,4 @@
-﻿//using Autofac;
-//using McMaster.Extensions.CommandLineUtils;
-//using TagsCloudContainer;
-//using TagsCloudContainer.FileReaders;
-//using TagsCloudContainer.Filters;
-using McMaster.Extensions.CommandLineUtils;
+﻿using McMaster.Extensions.CommandLineUtils;
 using Autofac;
 using TagsCloudContainer;
 

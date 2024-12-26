@@ -1,6 +1,4 @@
-﻿using Spire.Doc.Documents;
-
-namespace TagsCloudContainer;
+﻿namespace TagsCloudContainer;
 
 public class Config
 {
