@@ -10,6 +10,6 @@ namespace TagsCloudContainer.WordSizer
 {
     public interface ISizer
     {
-        public IOrderedEnumerable<SizeWord> GetSizes(IDictionary<string, int> words);
+        public IEnumerable<SizeWord> GetSizes(IDictionary<string, int> words);
     }
 }

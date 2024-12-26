@@ -5,20 +5,21 @@ namespace TagsCloudContainer.Layouters
 {
     public class CircularCloudLayouter : ILayouter
     {
-        public readonly List<RectangleWord> rectangles;
-        public readonly Point center;
+        public readonly List<RectangleWord> rectangles = [];
+        public Point center;
         private double angle;
-        private double spiralStep = 0.1;
-        private double radiusStep = 0.5;
+        private const double spiralStep = 0.1;
+        private const double radiusStep = 0.5;
+        private readonly Config config;
 
-        public CircularCloudLayouter(Point center)
+        public CircularCloudLayouter(Config config)
         {
-            this.center = center;
-            rectangles = new List<RectangleWord>();
+            this.config = config;
         }
 
         public IEnumerable<RectangleWord> GetLayout(IEnumerable<SizeWord> words)
         {
+            center = new Point(config.PictureWidth / 2, config.PictureHeight / 2);
             foreach (var word in words)
             {
                 var rectangleSize = word.Size;
@@ -29,7 +30,7 @@ namespace TagsCloudContainer.Layouters
                     newRect = new Rectangle(location, rectangleSize);
                 }
                 while (IsIntersecting(newRect));
-                rectangles.Add(new RectangleWord(word.Value, newRect));
+                rectangles.Add(new RectangleWord(word.Value, newRect, word.font));
             }
             return rectangles;
         }

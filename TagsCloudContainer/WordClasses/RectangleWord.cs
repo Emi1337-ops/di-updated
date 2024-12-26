@@ -7,5 +7,5 @@ using System.Threading.Tasks;
 
 namespace TagsCloudContainer.WordClasses
 {
-    public record RectangleWord(string Value, Rectangle Bounds);
+    public record RectangleWord(string Value, Rectangle Bounds, Font font);
 }

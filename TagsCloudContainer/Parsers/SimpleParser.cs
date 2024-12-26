@@ -14,12 +14,11 @@ namespace TagsCloudContainer.Parsers
         public IDictionary<string, int> Parse(string text)
         {
             var dict = new Dictionary<string, int>();
-            string pattern = @"\b[а-яА-ЯёЁa-zA-Z]+\b";
 
-            var words = Regex.Matches(text, pattern);
+            var words = Constants.wordsSplitRegex.Matches(text.ToLower());
 
             var wordArray = new List<string>();
-            for (int i = 0; i < words.Count; i++)
+            for (var i = 0; i < words.Count; i++)
             {
                 var word = words[i].Value;
                 if (!wordsFilter.Contains(word))

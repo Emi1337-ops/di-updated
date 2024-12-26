@@ -9,11 +9,11 @@ namespace TagsCloudContainer.Filters
         private HashSet<string> words;
         public WordsFilter()
         {
-            words = new HashSet<string>();
+            words = [];
 
             var projectDirectory =
-                Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\"));
-            var path = Path.Combine(projectDirectory, "Parsers\\stopwords.txt");
+                Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\"));
+            var path = Path.Combine(projectDirectory, "TagsCloudContainer\\Parsers\\stopwords.txt");
 
             if (!File.Exists(path))
             {
@@ -22,9 +22,7 @@ namespace TagsCloudContainer.Filters
 
             string text = File.ReadAllText(path);
 
-            string pattern = @"\b[а-яА-ЯёЁa-zA-Z]+\b";
-
-            var matches = Regex.Matches(text, pattern);
+            var matches = Constants.wordsSplitRegex.Matches(text);
 
             for (var i = 0; i < matches.Count; i++)
             {
