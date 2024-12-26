@@ -16,11 +16,9 @@ public class ImageVisualizer : IVisualizer
     {
         using var image = new Bitmap(config.PictureWidth, config.PictureWidth);
         using var g = Graphics.FromImage(image);
-        var pen = new Pen(Brushes.AliceBlue, 2);
 
         foreach (var item in words)
         {
-            g.DrawRectangle(pen, item.Bounds);
             g.DrawString(item.Value, item.font, Brushes.Orange, item.Bounds.Location);
         }
 

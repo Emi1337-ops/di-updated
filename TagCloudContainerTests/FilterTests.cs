@@ -20,6 +20,7 @@ public class FilterTests
     }
 
     [Test]
+    [Parallelizable(ParallelScope.Self)]
     public void Filter_ReadWordsFromFile()
     {
         var filter = new WordsFilter(config);

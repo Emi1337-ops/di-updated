@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TagsCloudContainer;
-public static class Program
+namespace TagsCloudContainer
 {
-    public static void Main()
+    public interface IApplicationRunner
     {
+        void Run();
     }
 }

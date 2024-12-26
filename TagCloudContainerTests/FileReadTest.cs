@@ -19,6 +19,7 @@ public class FileReadTest
     }
 
     [Test]
+    [Parallelizable(ParallelScope.Self)]
     public Task Reader_TxtReading()
     {
         Reader = new TxtFileReader();
@@ -30,6 +31,7 @@ public class FileReadTest
     }
 
     [Test]
+    [Parallelizable(ParallelScope.Self)]
     public Task Reader_DocxReading()
     {
         Reader = new DocxFileReader();
@@ -41,6 +43,7 @@ public class FileReadTest
     }
 
     [Test]
+    [Parallelizable(ParallelScope.Self)]
     public Task Reader_DocReading()
     {
         Reader = new DocFileReader();
