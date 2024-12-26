@@ -30,7 +30,7 @@ public class WordsFilter : IFilter
 
     public void AddStopWord(string word)
     {
-        if (Constants.OnlyLettersRegex.IsMatch(word))
+        if (word.All(c => char.IsLetter(c)))
             words.Add(word);
     }
 

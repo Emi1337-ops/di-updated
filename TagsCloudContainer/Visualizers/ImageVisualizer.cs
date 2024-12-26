@@ -14,7 +14,7 @@ public class ImageVisualizer : IVisualizer
 
     public void GenerateImage(IEnumerable<RectangleWord> words)
     {
-        using var image = new Bitmap(config.PictureWidth, config.PictureWidth);
+        using var image = new Bitmap(config.PictureWidth, config.PictureHeight);
         using var g = Graphics.FromImage(image);
 
         foreach (var item in words)

@@ -30,8 +30,4 @@ public static partial class Constants
     public readonly static Regex WordsSplitRegex = new(
         pattern: @"\b[а-яА-ЯёЁa-zA-Z]+\b",
         options: RegexOptions.Compiled | RegexOptions.IgnoreCase);
-
-    public readonly static Regex OnlyLettersRegex = new(
-        pattern: @"^[a-zA-Z]+$",
-        options: RegexOptions.Compiled | RegexOptions.IgnoreCase);
 }
