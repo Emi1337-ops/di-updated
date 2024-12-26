@@ -51,14 +51,15 @@ public class ConsoleClient
             ColorsInput?.Split(',') ?? Constants.PictureColors
         );
 
-        var container = ApplicationRunner.BuildContainer(config);
+        if (Config.TryValidateConfig(config))
+        {
+            var container = ApplicationRunner.BuildContainer(config);
 
-        using var scope = container.BeginLifetimeScope();
-        var runner = scope.Resolve<IApplicationRunner>();
-        runner.Run();
+            using var scope = container.BeginLifetimeScope();
+            var runner = scope.Resolve<IApplicationRunner>();
+            runner.Run();
+        }
     }
-
-    
 }
 
 
