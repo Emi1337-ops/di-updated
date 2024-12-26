@@ -53,7 +53,7 @@ public class Config
         if (!Path.Exists(config.InputDirectory))
             throw new FileNotFoundException("File not found.", config.InputDirectory);
 
-        if (!Path.Exists(config.OutputDirectory))
+        if (!Path.Exists(Path.Combine(config.OutputDirectory, @"..\")))
             throw new FileNotFoundException("File not found.", config.OutputDirectory);
 
         if (config.PictureWidth <= 0 || config.PictureWidth > 3000)

@@ -16,28 +16,28 @@ namespace TagCloudContainerTests
         [Test]
         public void ConsoleClient_CorrectCommandsRead()
         {
-            var input = "--input \"file\"";
-            var output = "--output \"outfile\"";
-            var width = "--width 1000";
-            var height = "--height 900";
-            var font = "--font \"Arial\"";
-            var stopwords = "--stopwords car,lemon,granade";
-            var rightwords = "--rightwords tomato,king";
-            var colors = "--colors 150,150,150,0";
+            var input = "--input file ";
+            var output = "--output outfile ";
+            var width = "--width 1000 ";
+            var height = "--height 900 ";
+            var font = "--font Arial ";
+            var stopwords = "--stopwords car,lemon,granade ";
+            var rightwords = "--rightwords tomato,king ";
+            var colors = "--colors 150,150,150,0 ";
 
-            var args = new List<string> { };
-            args.Add(String
-                    .Join(" ",
-                        input,
-                        output,
-                        width,
-                        height,
-                        font,
-                        stopwords,
-                        rightwords,
-                        colors)
-                );
+            var args = new string[] 
+            { 
+                input, 
+                output,
+                width,
+                height,
+                font,
+                stopwords,
+                rightwords,
+                colors
+            };
 
+            
             ConsoleClient.Main(args.ToArray());
         }
     }

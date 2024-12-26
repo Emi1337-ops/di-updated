@@ -4,10 +4,10 @@ namespace TagsCloudContainer;
 public static partial class Constants
 {
     public static string InputDirectory
-        => Path.Combine(ProjectDirectory, "TagsCloudContainer\\Files\\defaultTxt1.txt");
+        => Path.Combine(ProjectDirectory, "TagsCloudContainer\\Files\\defaultTxt.txt");
 
     public static string OutputDirectory 
-        => Path.Combine(ProjectDirectory, "TagsCloudContainer\\Pictures\\picture.jpg");
+        => Path.Combine(ProjectDirectory, "TagsCloudContainer\\Pictures\\picture4.jpg");
 
     public static string FilterWordsDirectory 
         => Path.Combine(ProjectDirectory, "TagsCloudContainer\\Files\\filterwords.txt");
@@ -29,5 +29,9 @@ public static partial class Constants
 
     public readonly static Regex WordsSplitRegex = new(
         pattern: @"\b[а-яА-ЯёЁa-zA-Z]+\b",
+        options: RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
+    public readonly static Regex OnlyLettersRegex = new(
+        pattern: @"^[a-zA-Z]+$",
         options: RegexOptions.Compiled | RegexOptions.IgnoreCase);
 }

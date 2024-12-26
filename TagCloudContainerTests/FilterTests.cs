@@ -75,6 +75,8 @@ public class FilterTests
     {
         var filter = new WordsFilter(config);
 
+        filter.Contains(stopWord).Should().BeTrue();
+
         filter.RemoveRightWord(stopWord);
 
         filter.Contains(stopWord).Should().BeFalse();
@@ -85,6 +87,11 @@ public class FilterTests
     {
         var filter = new WordsFilter(config);
         var rightWord = new string[] { "он", "она", "они", "оно" };
+
+        foreach (var word in rightWord)
+        {
+            filter.Contains(word).Should().BeTrue();
+        }
 
         filter.RemoveRightWords(rightWord);
 

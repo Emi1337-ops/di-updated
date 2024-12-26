@@ -34,8 +34,10 @@ public class SizerTests
 
         var sized = sizer.GetSizes(defaultDictionary);
 
-        sized.Count().Should().Be(defaultDictionary.Keys.Count);
-        sized.All(x => defaultDictionary.ContainsKey(x.Value)).Should().BeTrue();
+        sized
+            .Select(x => x.Value)
+            .Should()
+             .BeEquivalentTo(defaultDictionary.Keys);
     }
 
     [Test]
