@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 using TagsCloudContainer.WordClasses;
 using TagsCloudContainer.WordSizer;
 
-namespace TagsCloudContainer.Layouters
+namespace TagsCloudContainer.Layouters;
+public interface ILayouter
 {
-    public interface ILayouter
-    {
-        public IEnumerable<RectangleWord> GetLayout(IEnumerable<SizeWord> words);
-    }
+    public IEnumerable<RectangleWord> GetLayout(IEnumerable<SizeWord> words);
 }

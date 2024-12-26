@@ -5,10 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TagsCloudContainer.Parsers
+namespace TagsCloudContainer.Parsers;
+public interface IParser
 {
-    public interface IParser
-    {
-        public IDictionary<string, int> Parse(string text);
-    }
+    public IDictionary<string, int> Parse(string text);
 }

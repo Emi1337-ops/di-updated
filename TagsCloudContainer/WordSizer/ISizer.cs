@@ -6,10 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using TagsCloudContainer.WordClasses;
 
-namespace TagsCloudContainer.WordSizer
+namespace TagsCloudContainer.WordSizer;
+public interface ISizer
 {
-    public interface ISizer
-    {
-        public IEnumerable<SizeWord> GetSizes(IDictionary<string, int> words);
-    }
+    public IEnumerable<SizeWord> GetSizes(IDictionary<string, int> words);
 }

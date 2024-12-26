@@ -1,7 +1,5 @@
-﻿namespace TagsCloudContainer.FileReaders
+﻿namespace TagsCloudContainer.FileReaders;
+public interface IReader
 {
-    public interface IReader
-    {
-        string Read(string path);
-    }
+    string Read(string path);
 }

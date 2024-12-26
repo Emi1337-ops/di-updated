@@ -8,43 +8,41 @@ using TagsCloudContainer.Parsers;
 using TagsCloudContainer.Visualizers;
 using TagsCloudContainer.WordSizer;
 
-namespace TagsCloudContainer
+namespace TagsCloudContainer;
+public static class Program
 {
-    public static class Program
+    public static void Main()
     {
-        public static void Main()
-        {
-        }
-        public static void Main(Config config)
-        {
-            var builder = new ContainerBuilder();
-            builder.RegisterInstance(config).As<Config>();
-            builder.RegisterType<TxtFileReader>().As<IReader>();
-            builder.RegisterType<WordsFilter>().As<IFilter>();
-            builder.RegisterType<SimpleParser>().As<IParser>();
-            builder.RegisterType<SimpleSizer>().As<ISizer>();
-            builder.RegisterType<CircularCloudLayouter>().As<ILayouter>();
-            builder.RegisterType<ImageVisualizer>().As<IVisualizer>();
-            var container = builder.Build();
+    }
+    public static void Main(Config config)
+    {
+        var builder = new ContainerBuilder();
+        builder.RegisterInstance(config).As<Config>();
+        builder.RegisterType<TxtFileReader>().As<IReader>();
+        builder.RegisterType<WordsFilter>().As<IFilter>();
+        builder.RegisterType<SimpleParser>().As<IParser>();
+        builder.RegisterType<SimpleSizer>().As<ISizer>();
+        builder.RegisterType<CircularCloudLayouter>().As<ILayouter>();
+        builder.RegisterType<ImageVisualizer>().As<IVisualizer>();
+        var container = builder.Build();
 
-            var reader = container.Resolve<IReader>();
-            var filter = container.Resolve<IFilter>();
-            var parser = container.Resolve<IParser>();
-            var sizer = container.Resolve<ISizer>();
-            var layouter = container.Resolve<ILayouter>();
-            var visualizer = container.Resolve<IVisualizer>();
+        var reader = container.Resolve<IReader>();
+        var filter = container.Resolve<IFilter>();
+        var parser = container.Resolve<IParser>();
+        var sizer = container.Resolve<ISizer>();
+        var layouter = container.Resolve<ILayouter>();
+        var visualizer = container.Resolve<IVisualizer>();
 
-            visualizer.GenerateImage(
-                layouter.GetLayout(
-                    sizer.GetSizes(
-                        parser.Parse(
-                            reader.Read(
-                                config.InputDirectory
-                            )
+        visualizer.GenerateImage(
+            layouter.GetLayout(
+                sizer.GetSizes(
+                    parser.Parse(
+                        reader.Read(
+                            config.InputDirectory
                         )
                     )
                 )
-            );
-        }
+            )
+        );
     }
 }

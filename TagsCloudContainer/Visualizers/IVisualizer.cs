@@ -5,10 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using TagsCloudContainer.WordClasses;
 
-namespace TagsCloudContainer.Visualizers
+namespace TagsCloudContainer.Visualizers;
+public interface IVisualizer
 {
-    public interface IVisualizer
-    {
-        public void GenerateImage(IEnumerable<RectangleWord> words);
-    }
+    public void GenerateImage(IEnumerable<RectangleWord> words);
 }

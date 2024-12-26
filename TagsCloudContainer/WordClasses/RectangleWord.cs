@@ -5,7 +5,5 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TagsCloudContainer.WordClasses
-{
-    public record RectangleWord(string Value, Rectangle Bounds, Font font);
-}
+namespace TagsCloudContainer.WordClasses;
+public record RectangleWord(string Value, Rectangle Bounds, Font font);
