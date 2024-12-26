@@ -15,7 +15,7 @@ namespace TagsCloudContainer
             {
                 var projectDirectory =
                     Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\"));
-                return Path.Combine(projectDirectory, "TagsCloudContainer\\defaultTxt1.txt");
+                return Path.Combine(projectDirectory, "TagsCloudContainer\\Files\\defaultTxt1.txt");
             }
         }
 
@@ -23,12 +23,23 @@ namespace TagsCloudContainer
             {
                 var projectDirectory =
                     Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\"));
-                return Path.Combine(projectDirectory, "TagsCloudContainer\\picture.jpg");
+                return Path.Combine(projectDirectory, "TagsCloudContainer\\Files\\picture.jpg");
             } 
         }
-        public static int PictureWidth { get { return 1000; } }
 
-        public static int PictureHeight { get { return 1000; } }
+        public static string FilterWordsDirectory
+        {
+            get
+            {
+                var projectDirectory =
+                    Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\"));
+                return Path.Combine(projectDirectory, "TagsCloudContainer\\Files\\filterwords.txt");
+            }
+        }
+
+        public static int PictureWidth { get { return 800; } }
+
+        public static int PictureHeight { get { return 800; } }
 
         public static string Font { get { return "Arial"; } }
 

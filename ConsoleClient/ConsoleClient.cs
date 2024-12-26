@@ -28,11 +28,6 @@ public class ConsoleClient
     public string[] StopWords => StopWordsInput?.Split(',') ?? Array.Empty<string>();
 
     public string[] PictureColors => ColorsInput?.Split(',') ?? Array.Empty<string>();
-        //ColorsInput?.Split(',').Select(color =>
-        //{
-        //    var components = color.Split(' ').Select(int.Parse).ToArray();
-        //    return Color.FromArgb(components[0], components[1], components[2], components[3]);
-        //}).ToArray() ?? Array.Empty<Color>();
 
     public static int Main(string[] args)
     {
