@@ -42,8 +42,9 @@ public class SimpleSizer : ISizer
         var maxFontSize = 200;
         var minFontSize = 1;
 
-        var tempBitmap = new Bitmap(1, 1);
-        var graphics = Graphics.FromImage(tempBitmap);
+        using var tempBitmap = new Bitmap(1, 1);
+        using var graphics = Graphics.FromImage(tempBitmap);
+
         Size textSize;
         Font font;
 

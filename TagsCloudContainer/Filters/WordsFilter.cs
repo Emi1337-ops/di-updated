@@ -20,8 +20,7 @@ public class WordsFilter : IFilter
 
         for (var i = 0; i < matches.Count; i++)
         {
-            if (!words.Contains(matches[i].Value))
-                words.Add(matches[i].Value);
+            words.Add(matches[i].Value);
         }
 
         AddStopWords(config.StopWords);
@@ -34,13 +33,11 @@ public class WordsFilter : IFilter
 
     public void AddStopWord(string word)
     {
-        if (!words.Contains(word))
             words.Add(word);
     }
 
     public void RemoveStopWord(string word)
     {
-        if (words.Contains(word))
             words.Remove(word);
     }
 

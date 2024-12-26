@@ -25,7 +25,7 @@ public class ConsoleClient
     [Option("--colors", "Comma-separated list of colors in ARGB format (e.g., 255,0,0,255).", CommandOptionType.SingleValue)]
     public string ColorsInput { get; set; }
 
-    public string[] StopWords => StopWordsInput?.Split(',') ?? Array.Empty<string>();
+    public string[] StopWords => StopWordsInput?.Split(',').Select(x => x.ToLower()).ToArray() ?? Array.Empty<string>();
 
     public string[] PictureColors => ColorsInput?.Split(',') ?? Array.Empty<string>();
 

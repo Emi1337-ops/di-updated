@@ -4,8 +4,8 @@ using TagsCloudContainer.WordClasses;
 namespace TagsCloudContainer.Layouters;
 public class CircularCloudLayouter : ILayouter
 {
-    public readonly List<RectangleWord> rectangles = [];
-    public Point center;
+    private readonly List<RectangleWord> rectangles = [];
+    private Point center;
     private double angle;
     private const double spiralStep = 0.1;
     private const double radiusStep = 0.5;
@@ -19,9 +19,8 @@ public class CircularCloudLayouter : ILayouter
     public IEnumerable<RectangleWord> GetLayout(IEnumerable<SizeWord> words)
     {
         center = new Point(config.PictureWidth / 2, config.PictureHeight / 2);
-        foreach (var word in words)
+        foreach (var (value, rectangleSize, font) in words)
         {
-            var rectangleSize = word.Size;
             Rectangle newRect;
             do
             {
@@ -29,7 +28,7 @@ public class CircularCloudLayouter : ILayouter
                 newRect = new Rectangle(location, rectangleSize);
             }
             while (IsIntersecting(newRect));
-            rectangles.Add(new RectangleWord(word.Value, newRect, word.font));
+            rectangles.Add(new RectangleWord(value, newRect, font));
         }
         return rectangles;
     }
@@ -45,12 +44,9 @@ public class CircularCloudLayouter : ILayouter
 
     private bool IsIntersecting(Rectangle rectangle)
     {
-        foreach (var existingRectangle in rectangles)
-        {
-            if (existingRectangle.Bounds.IntersectsWith(rectangle))
-                return true;
-        }
-        return false;
+        return rectangles.
+            Any(existingRectangle => 
+                existingRectangle.Bounds.IntersectsWith(rectangle));
     }
 
     public static Point GetCornerPoint(Point center, Size size)

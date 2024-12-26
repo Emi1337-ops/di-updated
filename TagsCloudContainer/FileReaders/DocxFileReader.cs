@@ -11,17 +11,14 @@ public class DocxFileReader : IReader
         if (!File.Exists(path))
             throw new FileNotFoundException("File not found.", path);
 
-        using (FileStream stream = File.OpenRead(path))
+        using var stream = File.OpenRead(path);
+        using var writer = new StringWriter();
+
+        var docx = new XWPFDocument(stream);
+        foreach (var paragraph in docx.Paragraphs)
         {
-            var docx = new XWPFDocument(stream);
-            using (var writer = new StringWriter())
-            {
-                foreach (var paragraph in docx.Paragraphs)
-                {
-                    writer.WriteLine(paragraph.Text);
-                }
-                return writer.ToString();
-            }
+            writer.WriteLine(paragraph.Text);
         }
+        return writer.ToString();
     }
 }

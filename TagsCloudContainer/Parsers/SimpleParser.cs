@@ -1,5 +1,4 @@
-﻿using System.Text.RegularExpressions;
-using TagsCloudContainer.Filters;
+﻿using TagsCloudContainer.Filters;
 
 namespace TagsCloudContainer.Parsers;
 public class SimpleParser : IParser
@@ -16,19 +15,14 @@ public class SimpleParser : IParser
 
         var words = Constants.wordsSplitRegex.Matches(text.ToLower());
 
-        var wordArray = new List<string>();
         for (var i = 0; i < words.Count; i++)
         {
             var word = words[i].Value;
             if (!wordsFilter.Contains(word))
             {
-                if (dict.Keys.Contains(word))
+                if (!dict.TryAdd(word, 1))
                 {
                     dict[word]++;
-                }
-                else
-                {
-                    dict.Add(word,1);
                 }
             }
         }

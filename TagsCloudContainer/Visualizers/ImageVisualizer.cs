@@ -14,13 +14,12 @@ public class ImageVisualizer : IVisualizer
 
     public void GenerateImage(IEnumerable<RectangleWord> words)
     {
-        var image = new Bitmap(config.PictureWidth, config.PictureWidth);
-        var g = Graphics.FromImage(image);
+        using var image = new Bitmap(config.PictureWidth, config.PictureWidth);
+        using var g = Graphics.FromImage(image);
         var pen = new Pen(Brushes.AliceBlue, 2);
-        var count = 0;
+
         foreach (var item in words)
         {
-            count++;
             g.DrawRectangle(pen, item.Bounds);
             g.DrawString(item.Value, item.font, Brushes.Orange, item.Bounds.Location);
         }

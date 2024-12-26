@@ -46,7 +46,7 @@ public static partial class Constants
 
     public static string[] PictureColors { get { return []; } }
 
-    public static Regex wordsSplitRegex1 = new(
+    public static Regex wordsSplitRegex = new(
         pattern: @"\b[а-яА-ЯёЁa-zA-Z]+\b",
         options: RegexOptions.Compiled | RegexOptions.IgnoreCase);
 }

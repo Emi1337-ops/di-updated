@@ -27,7 +27,6 @@ public static class Program
         var container = builder.Build();
 
         var reader = container.Resolve<IReader>();
-        var filter = container.Resolve<IFilter>();
         var parser = container.Resolve<IParser>();
         var sizer = container.Resolve<ISizer>();
         var layouter = container.Resolve<ILayouter>();
