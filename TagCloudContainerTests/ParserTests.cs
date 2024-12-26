@@ -17,7 +17,6 @@ public class ParserTests
     {
         config = new Config();
         defaultFilter = new WordsFilter(config);
-        var folderPath = Path.Combine(Constants.ProjectDirectory, "TagCloudConrainerTests\\Files");
     }
 
     [TestCase("Шла Саша шоссе")]
