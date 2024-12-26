@@ -46,6 +46,7 @@ public class FilterTests
     public void Filter_AddStopWord_FromMethod(string stopWord)
     {
         var filter = new WordsFilter(config);
+
         filter.AddStopWord(stopWord);
         
         filter.Contains(stopWord).Should().BeTrue();
@@ -56,6 +57,7 @@ public class FilterTests
     {
         var filter = new WordsFilter(config);
         var stopWord = new string[] { "Карамель", "Ирис", "Шоколадка", "Трансформер" };
+
         filter.AddStopWords(stopWord);
 
         foreach (var word in stopWord)
@@ -72,6 +74,7 @@ public class FilterTests
     public void Filter_RemoveRightWord_FromMethod(string stopWord)
     {
         var filter = new WordsFilter(config);
+
         filter.RemoveRightWord(stopWord);
 
         filter.Contains(stopWord).Should().BeFalse();
@@ -82,6 +85,7 @@ public class FilterTests
     {
         var filter = new WordsFilter(config);
         var rightWord = new string[] { "он", "она", "они", "оно" };
+
         filter.RemoveRightWords(rightWord);
 
         foreach (var word in rightWord)
@@ -94,6 +98,7 @@ public class FilterTests
     public void Filter_AddStopWords_FromConfig()
     {
         config.StopWords = ["Моска", "Волгоград"];
+
         var filter = new WordsFilter(config);
 
         foreach (var word in config.StopWords)
@@ -105,6 +110,7 @@ public class FilterTests
     public void Filter_RemoveRightWords_FromConfig()
     {
         config.StopWords = ["он", "она", "они", "оно"];
+
         var filter = new WordsFilter(config);
 
         foreach (var word in config.StopWords)

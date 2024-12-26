@@ -52,6 +52,7 @@ public class CircularCloudLayouterTests
     public void CircularCloudLayouter_Constructor_CorrectlySetCenter()
     {
         layouter.GetLayout([]);
+
         layouter.Center
             .Should()
             .Be(new Point(config.PictureWidth / 2, config.PictureHeight / 2));

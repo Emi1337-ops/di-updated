@@ -24,4 +24,14 @@ public class ImageVisualizer : IVisualizer
 
         image.Save(config.OutputDirectory, ImageFormat.Jpeg);
     }
+
+    public string GetImageFotmat()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Color GetWordColor(RectangleWord word)
+    {
+        throw new NotImplementedException();
+    }
 }

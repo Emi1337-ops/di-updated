@@ -29,4 +29,14 @@ public class SimpleParser : IParser
         }
         return dict;
     }
+
+    public string TakeOnlyOnePartOfSpeech(string text, string partOfSpeech)
+    {
+        throw new NotImplementedException();
+    }
+
+    public string BringWordsToOriginalForm(string text)
+    {
+        throw new NotImplementedException();
+    }
 }

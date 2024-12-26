@@ -44,6 +44,7 @@ public class SizerTests
         var sizer = new SimpleSizer(config);
 
         var sized = sizer.GetSizes(defaultDictionary).ToArray();
+
         for (var i = 0; i < sized.Length - 2; i++)
         {
             var heavierWord = GetSizeSquare(sized[i].Size);
