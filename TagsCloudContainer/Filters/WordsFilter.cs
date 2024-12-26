@@ -1,22 +1,18 @@
-﻿using Org.BouncyCastle.Asn1.Mozilla;
-using System.IO;
-using System.Text.RegularExpressions;
-using TagsCloudContainer.FileReaders;
+﻿using TagsCloudContainer.FileReaders;
 
 namespace TagsCloudContainer.Filters;
+
 public class WordsFilter : IFilter
 {
     private HashSet<string> words;
-    private Config config;
+
     public WordsFilter(Config config)
     {
-        this.config = config;
-
         words = [];
         var reader = new TxtFileReader();
         var filterWords = reader.Read(Constants.FilterWordsDirectory);
 
-        var matches = Constants.wordsSplitRegex.Matches(filterWords);
+        var matches = Constants.WordsSplitRegex.Matches(filterWords);
 
         for (var i = 0; i < matches.Count; i++)
         {
@@ -24,6 +20,7 @@ public class WordsFilter : IFilter
         }
 
         AddStopWords(config.StopWords);
+        RemoveStopWords(config.RightWords);
     }
 
     public bool Contains(string word)
@@ -33,12 +30,12 @@ public class WordsFilter : IFilter
 
     public void AddStopWord(string word)
     {
-            words.Add(word);
+        words.Add(word);
     }
 
     public void RemoveStopWord(string word)
     {
-            words.Remove(word);
+        words.Remove(word);
     }
 
     public void AddStopWords(string[] wordArray)

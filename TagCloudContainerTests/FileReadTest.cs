@@ -1,6 +1,7 @@
 using TagsCloudContainer.FileReaders;
 
 namespace TagCloudContainerTests;
+
 public class FileReadTest
 {
     private static readonly VerifySettings Settings = new();

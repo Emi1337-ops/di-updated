@@ -1,6 +1,7 @@
 ﻿using Spire.Doc;
 
 namespace TagsCloudContainer.FileReaders;
+
 public class DocFileReader : IReader
 {
     public string Read(string path)

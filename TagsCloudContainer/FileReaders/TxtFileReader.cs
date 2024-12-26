@@ -1,4 +1,5 @@
 ﻿namespace TagsCloudContainer.FileReaders;
+
 public class TxtFileReader : IReader
 {
     public string Read(string path)

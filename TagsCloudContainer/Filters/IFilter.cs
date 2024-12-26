@@ -1,4 +1,5 @@
 ﻿namespace TagsCloudContainer.Filters;
+
 public interface IFilter
 {
     void AddStopWord(string word);

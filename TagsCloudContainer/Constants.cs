@@ -1,52 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
 namespace TagsCloudContainer;
 public static partial class Constants
 {
     public static string InputDirectory
-    {
-        get
-        {
-            var projectDirectory =
-                Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\"));
-            return Path.Combine(projectDirectory, "TagsCloudContainer\\Files\\defaultTxt1.txt");
-        }
-    }
+        => Path.Combine(ProjectDirectory, "TagsCloudContainer\\Files\\defaultTxt1.txt");
 
-    public static string OutputDirectory { get
-        {
-            var projectDirectory =
-                Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\"));
-            return Path.Combine(projectDirectory, "TagsCloudContainer\\Pictures\\picture.jpg");
-        } 
-    }
+    public static string OutputDirectory 
+        => Path.Combine(ProjectDirectory, "TagsCloudContainer\\Pictures\\picture.jpg");
 
-    public static string FilterWordsDirectory
-    {
-        get
-        {
-            var projectDirectory =
-                Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\"));
-            return Path.Combine(projectDirectory, "TagsCloudContainer\\Files\\filterwords.txt");
-        }
-    }
+    public static string FilterWordsDirectory 
+        => Path.Combine(ProjectDirectory, "TagsCloudContainer\\Files\\filterwords.txt");
 
-    public static int PictureWidth { get { return 800; } }
+    public static string ProjectDirectory
+        => Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\"));
 
-    public static int PictureHeight { get { return 800; } }
+    public static int PictureWidth => 800;
 
-    public static string Font { get { return "Arial"; } }
+    public static int PictureHeight => 800;
 
-    public static string[] StopWords { get { return []; } }
+    public static string Font => "Arial";
 
-    public static string[] PictureColors { get { return []; } }
+    public static string[] StopWords => [];
 
-    public static Regex wordsSplitRegex = new(
+    public static string[] RightWords => [];
+
+    public static string[] PictureColors => [];
+
+    public readonly static Regex WordsSplitRegex = new(
         pattern: @"\b[а-яА-ЯёЁa-zA-Z]+\b",
         options: RegexOptions.Compiled | RegexOptions.IgnoreCase);
 }

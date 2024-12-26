@@ -1,9 +1,9 @@
 ﻿using System.Drawing;
 using System.Drawing.Imaging;
-using System.IO;
 using TagsCloudContainer.WordClasses;
 
 namespace TagsCloudContainer.Visualizers;
+
 public class ImageVisualizer : IVisualizer
 {
     private Config config;

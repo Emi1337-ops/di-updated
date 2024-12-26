@@ -1,6 +1,7 @@
 ﻿using NPOI.XWPF.UserModel;
 
 namespace TagsCloudContainer.FileReaders;
+
 public class DocxFileReader : IReader
 {
     public string Read(string path)

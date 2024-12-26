@@ -1,14 +1,8 @@
-﻿using NPOI.OpenXmlFormats.Dml;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Net.WebSockets;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using TagsCloudContainer.WordClasses;
 
 namespace TagsCloudContainer.WordSizer;
+
 public class SimpleSizer : ISizer
 {
     private readonly Config config;
@@ -32,7 +26,6 @@ public class SimpleSizer : ISizer
             var maxSize = new Size(maxWidth, maxHeight);
             var (size, font) = GetFontSize(maxSize, config.Font, item.Key);
             list.Add(new SizeWord(item.Key, size, font));
-            //list.Add(new SizeWord(item.Key, maxSize, new Font("Arial", 23)));
         }
         return list;
     }

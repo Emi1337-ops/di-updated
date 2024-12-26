@@ -1,6 +1,4 @@
 ﻿using Autofac;
-using NPOI.SS.Formula.Functions;
-using Org.BouncyCastle.Crypto;
 using TagsCloudContainer.FileReaders;
 using TagsCloudContainer.Filters;
 using TagsCloudContainer.Layouters;

@@ -1,6 +1,7 @@
 ﻿using TagsCloudContainer.Filters;
 
 namespace TagsCloudContainer.Parsers;
+
 public class SimpleParser : IParser
 {
     private IFilter wordsFilter;
@@ -13,7 +14,7 @@ public class SimpleParser : IParser
     {
         var dict = new Dictionary<string, int>();
 
-        var words = Constants.wordsSplitRegex.Matches(text.ToLower());
+        var words = Constants.WordsSplitRegex.Matches(text.ToLower());
 
         for (var i = 0; i < words.Count; i++)
         {

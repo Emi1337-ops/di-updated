@@ -2,10 +2,11 @@
 using TagsCloudContainer.WordClasses;
 
 namespace TagsCloudContainer.Layouters;
+
 public class CircularCloudLayouter : ILayouter
 {
-    private readonly List<RectangleWord> rectangles = [];
-    private Point center;
+    public readonly List<RectangleWord> Rectangles = []; // public нужен для тестов
+    public Point Center;
     private double angle;
     private const double spiralStep = 0.1;
     private const double radiusStep = 0.5;
@@ -18,7 +19,7 @@ public class CircularCloudLayouter : ILayouter
 
     public IEnumerable<RectangleWord> GetLayout(IEnumerable<SizeWord> words)
     {
-        center = new Point(config.PictureWidth / 2, config.PictureHeight / 2);
+        Center = new Point(config.PictureWidth / 2, config.PictureHeight / 2);
         foreach (var (value, rectangleSize, font) in words)
         {
             Rectangle newRect;
@@ -28,23 +29,23 @@ public class CircularCloudLayouter : ILayouter
                 newRect = new Rectangle(location, rectangleSize);
             }
             while (IsIntersecting(newRect));
-            rectangles.Add(new RectangleWord(value, newRect, font));
+            Rectangles.Add(new RectangleWord(value, newRect, font));
         }
-        return rectangles;
+        return Rectangles;
     }
 
     private Point GetNextLocation(Size rectangleSize)
     {
         var radius = radiusStep * angle;
-        var centerX = center.X + (int)(radius * Math.Cos(angle));
-        var centerY = center.Y + (int)(radius * Math.Sin(angle));
+        var centerX = Center.X + (int)(radius * Math.Cos(angle));
+        var centerY = Center.Y + (int)(radius * Math.Sin(angle));
         angle += spiralStep;
         return GetCornerPoint(new Point(centerX, centerY), rectangleSize);
     }
 
-    private bool IsIntersecting(Rectangle rectangle)
+    public bool IsIntersecting(Rectangle rectangle)
     {
-        return rectangles.
+        return Rectangles.
             Any(existingRectangle => 
                 existingRectangle.Bounds.IntersectsWith(rectangle));
     }

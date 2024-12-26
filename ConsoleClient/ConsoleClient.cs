@@ -1,5 +1,4 @@
 ﻿using McMaster.Extensions.CommandLineUtils;
-using System.Drawing;
 using TagsCloudContainer;
 
 public class ConsoleClient
@@ -22,10 +21,15 @@ public class ConsoleClient
     [Option("--stopwords", "Comma-separated list of stop words.", CommandOptionType.SingleValue)]
     public string StopWordsInput { get; set; }
 
+    [Option("--rightwords", "Comma-separated list of right words.", CommandOptionType.SingleValue)]
+    public string RightWordsInput { get; set; }
+
     [Option("--colors", "Comma-separated list of colors in ARGB format (e.g., 255,0,0,255).", CommandOptionType.SingleValue)]
     public string ColorsInput { get; set; }
 
     public string[] StopWords => StopWordsInput?.Split(',').Select(x => x.ToLower()).ToArray() ?? Array.Empty<string>();
+
+    public string[] RightWords => RightWordsInput?.Split(',').Select(x => x.ToLower()).ToArray() ?? Array.Empty<string>();
 
     public string[] PictureColors => ColorsInput?.Split(',') ?? Array.Empty<string>();
 
@@ -43,11 +47,11 @@ public class ConsoleClient
             PictureHeight == default ? Constants.PictureHeight : PictureHeight,
             Font is null ? Constants.Font : Font,
             StopWords is null ? Constants.StopWords : StopWords,
+            RightWords is null ? Constants.RightWords : RightWords,
             PictureColors is null ? Constants.PictureColors : PictureColors
            );
 
         TagsCloudContainer.Program.Main(config);
-        Console.WriteLine(config);
     }
 }
 
